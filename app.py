@@ -13,7 +13,7 @@ def hello_world():
 def process():
     model = tf.keras.models.load_model('./model/my_model')
     image = Image.open('./input/00001.jpg')
-    image = np.array(image).astype('float32')/119
+    image = np.array(image).astype('float32')/255
     image = transform.resize(image, (120, 120, 3))
     image = np.expand_dims(image, axis=0)
 
