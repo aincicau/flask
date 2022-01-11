@@ -14,6 +14,7 @@ def hello_world():
 
 @app.route('/process')
 def process():
+    # imagefile = flask.request.files.get('imagefile', '')
     image = Image.open('./input/00001.jpg')
     image = np.array(image).astype('float32')/255
     image = transform.resize(image, (120, 120, 3))
