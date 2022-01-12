@@ -4,7 +4,6 @@ import tensorflow as tf
 from PIL import Image
 import numpy as np
 from skimage import transform
-# from os.path import join, dirname, abspath
 from os import path, remove
 
 
@@ -33,7 +32,9 @@ def process():
     result = model.predict(image)
     print(result)
 
-    resp = Response('casd')
+    dataBytes = dumps({'result': result[0][0]})
+
+    resp = Response(dataBytes)
     resp.headers['Access-Control-Allow-Credentials'] = 'true'
     resp.headers['Access-Control-Allow-Origin'] = 'http://localhost:3000'
 
